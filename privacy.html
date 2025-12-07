@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Catch Learn</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Warna diambil dari palet aplikasi */
+            --primary-color: #5C178C; 
+            --secondary-color: #2A0A48;
+            --accent-color: #9C27B0;
+            --bg-color: #f3f4f6;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar - Konsisten dengan index.html */
+        nav {
+            background-color: #ffffff;
+            padding: 1rem 5%;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Header dengan Gradient */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -40px auto 40px; /* Overlap effect */
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* Language Switcher */
+        .language-switch {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 5px;
+            border-radius: 30px;
+            display: inline-flex;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn-lang {
+            padding: 10px 25px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lang.active {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            box-shadow: 0 2px 8px rgba(92, 23, 140, 0.4);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight {
+            background-color: #f3e5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        /* Contact Box Style */
+        .contact-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .contact-box a {
+             color: var(--primary-color);
+             text-decoration: none;
+             font-weight: bold;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function showLanguage(lang) {
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.btn-lang').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </nav>
+
+    <header>
+        <h1>Catch Learn</h1>
+        <p>.</p>
+    </header>
+
+    <div class="container">
+        <div class="language-switch">
+            <button id="btn-en" class="btn-lang active" onclick="showLanguage('en')">English</button>
+            <button id="btn-id" class="btn-lang" onclick="showLanguage('id')">Indonesia</button>
+        </div>
+
+        <div class="card">
+            <!-- ENGLISH CONTENT -->
+            <div id="en" class="section active">
+                <p><strong>Last Updated:</strong> December 2025</p>
+                
+                <p>Welcome to <strong>Catch Learn</strong>. This application is developed by AWAWA Team. We respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of your information.</p>
+
+                <h2>1. Information Collection & Permissions</h2>
+                <p>To provide our core features—object identification, trivia generation, and drawing practice—Catch Learn requires specific permissions on your Android device:</p>
+                
+                <h3>A. Camera Access</h3>
+                <p>We use the camera specifically to allow you to capture photos of objects in your surroundings. The camera is active only when you trigger the "Take Photo" feature.</p>
+
+                <h3>B. Storage & Media</h3>
+                <p>We require access to your device's storage to:</p>
+                <ul>
+                    <li>Allow you to upload existing photos from your gallery for analysis.</li>
+                    <li>Temporarily save captured photos before processing them.</li>
+                    <li>Save your picture.</li>
+                </ul>
+
+                <h2>2. How We Process Your Data (AI & Cloud)</h2>
+                <p>Catch Learn is powered by advanced Artificial Intelligence to identify objects and provide educational content.</p>
+                <ul>
+                    <li><strong>Data Transmission:</strong> When you capture or upload a photo, the image data is transmitted securely (via HTTPS) to our AI processing server.</li>
+                    <li><strong>Purpose:</strong> The image is analyzed solely to identify the object (e.g., "Apple") and generate interesting facts/trivia about it.</li>
+                    <li><strong>No Permanent Storage:</strong> Images sent to our server are processed in real-time and are <strong>not permanently stored</strong> on our servers. Once the analysis is returned to your phone, the server-side data is discarded.</li>
+                </ul>
+
+                <h2>3. Children's Privacy</h2>
+                <p>Catch Learn is designed as an educational tool suitable for users of all ages, including children. We <strong>do not</strong> knowingly collect personally identifiable information (PII) such as names, physical addresses, emails, or phone numbers from children. The app functions without requiring user registration or login.</p>
+
+                <h2>4. Third-Party Services</h2>
+                <p>We may use third-party services to facilitate our Service:</p>
+                <ul>
+                    <li><strong>Google Play Services:</strong> For core application functionality.</li>
+                    <li><strong>Senopati Vision API (AI Provider):</strong> To process image recognition and generate educational text.</li>
+                </ul>
+
+                <h2>5. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy or the practices of this app, please contact the developer:</p>
+                <div class="contact-box">
+                    <p><strong>Developer Support</strong></p>
+                    <p>Email: <a href="mailto:catchlearn.team@gmail.com">catchlearn.team@gmail.com</a></p>
+                </div>
+            </div>
+
+            <!-- INDONESIAN CONTENT -->
+            <div id="id" class="section">
+                <p><strong>Terakhir Diperbarui:</strong> Desember 2025</p>
+                
+                <p>Selamat datang di <strong>Catch Learn</strong>. Aplikasi ini dikembangkan oleh Tim AWAWA. Kami menghargai privasi Anda dan berkomitmen untuk melindungi informasi yang Anda bagikan. Kebijakan Privasi ini menjelaskan praktik kami terkait pengumpulan, penggunaan, dan keamanan informasi Anda.</p>
+
+                <h2>1. Pengumpulan Informasi & Izin Akses</h2>
+                <p>Untuk menyediakan fitur utama kami—identifikasi objek, fakta edukatif, dan latihan menggambar—Catch Learn memerlukan izin khusus pada perangkat Android Anda:</p>
+                
+                <h3>A. Akses Kamera</h3>
+                <p>Kami menggunakan kamera khusus untuk memungkinkan Anda mengambil foto objek di sekitar Anda. Kamera hanya aktif ketika Anda menekan tombol "Ambil Foto".</p>
+
+                <h3>B. Penyimpanan & Media</h3>
+                <p>Kami memerlukan akses ke penyimpanan perangkat Anda untuk:</p>
+                <ul>
+                    <li>Memungkinkan Anda mengunggah foto yang sudah ada dari galeri untuk dianalisis.</li>
+                    <li>Menyimpan sementara foto yang diambil sebelum diproses.</li>
+                    <li>Menyimpan gambar Anda.</li>
+                </ul>
+
+                <h2>2. Bagaimana Kami Memproses Data (AI & Cloud)</h2>
+                <p>Catch Learn didukung oleh Kecerdasan Buatan (AI) canggih untuk mengidentifikasi objek dan menyediakan konten edukasi.</p>
+                <ul>
+                    <li><strong>Transmisi Data:</strong> Saat Anda mengambil atau mengunggah foto, data gambar dikirimkan secara aman (via HTTPS) ke server pemrosesan AI kami.</li>
+                    <li><strong>Tujuan:</strong> Gambar dianalisis semata-mata untuk mengidentifikasi objek (contoh: "Apel") dan menghasilkan fakta menarik tentang objek tersebut.</li>
+                    <li><strong>Tidak Ada Penyimpanan Permanen:</strong> Gambar yang dikirim ke server diproses secara real-time dan <strong>tidak disimpan secara permanen</strong> di server kami. Setelah hasil analisis dikirim kembali ke ponsel Anda, data di sisi server akan dihapus.</li>
+                </ul>
+
+                <h2>3. Privasi Anak-Anak</h2>
+                <p>Catch Learn dirancang sebagai alat edukasi yang aman untuk semua usia, termasuk anak-anak. Kami <strong>tidak</strong> secara sadar mengumpulkan informasi pengenal pribadi (PII) seperti nama, alamat fisik, email, atau nomor telepon. Aplikasi ini dapat digunakan tanpa perlu registrasi atau login.</p>
+
+                <h2>4. Layanan Pihak Ketiga</h2>
+                <p>Kami menggunakan layanan pihak ketiga untuk mendukung operasional aplikasi:</p>
+                <ul>
+                    <li><strong>Google Play Services:</strong> Untuk fungsionalitas dasar aplikasi Android.</li>
+                    <li><strong>Senopati Vision API (Penyedia AI):</strong> Untuk memproses pengenalan gambar dan menghasilkan teks edukatif.</li>
+                </ul>
+
+                <h2>5. Hubungi Kami</h2>
+                <p>Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini atau cara kerja aplikasi, silakan hubungi pengembang:</p>
+                <div class="contact-box">
+                    <p><strong>Dukungan Pengembang</strong></p>
+                    <p>Email: <a href="mailto:catchlearn.team@gmail.com">catchlearn.team@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Catch Learn Project. Created for Educational Purpose.
+        </div>
+    </div>
+
+</body>
+</html>
