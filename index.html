@@ -49,6 +49,11 @@
             text-decoration: none;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-links a {
             margin-left: 20px;
             text-decoration: none;
@@ -61,7 +66,32 @@
             color: var(--primary-color);
         }
 
-        /* Class button ini tetap ada untuk tombol di Hero Section */
+        /* Language Switcher in Nav */
+        .lang-switch-nav {
+            margin-left: 20px;
+            display: flex;
+            background: #eee;
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        .btn-lang-nav {
+            padding: 5px 12px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lang-nav.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
         .btn-cta {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: var(--white);
@@ -181,60 +211,139 @@
             margin: 0 10px;
         }
 
+        /* Language Content Visibility */
+        [data-lang="id"] {
+            display: none;
+        }
+
+        body.lang-id [data-lang="en"] {
+            display: none;
+        }
+        
+        body.lang-id [data-lang="id"] {
+            display: block;
+        }
+        
+        /* Fix for grid items to show correctly when switching language */
+        body.lang-id .feature-grid [data-lang="id"] {
+            display: block; /* Override default block for grid item contents if needed, but structure handles it */
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; } /* Untuk simpel, menu mobile disembunyikan dulu */
+            .nav-links { 
+                /* Simple mobile adjustment */
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 10px;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+                justify-content: center;
+            }
+            .nav-links a { margin: 0 10px; font-size: 0.9rem; }
+            .lang-switch-nav { margin-left: 10px; }
+            .container { margin-bottom: 60px; }
         }
     </style>
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            
+            // Update buttons active state
+            document.querySelectorAll('.btn-lang-nav').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
 </head>
-<body>
+<body class="lang-en"> <!-- Default Language: English -->
 
     <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">Catch Learn</a>
         <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#guide">User Guide</a>
+            <span data-lang="en"><a href="#features">Features</a></span>
+            <span data-lang="id"><a href="#features">Fitur</a></span>
+            
+            <span data-lang="en"><a href="#guide">User Guide</a></span>
+            <span data-lang="id"><a href="#guide">Panduan</a></span>
+            
             <a href="privacy.html">Privacy Policy</a>
-            <!-- Tombol Download dihapus sesuai permintaan -->
+            
+            <div class="lang-switch-nav">
+                <button id="btn-en" class="btn-lang-nav active" onclick="setLanguage('en')">EN</button>
+                <button id="btn-id" class="btn-lang-nav" onclick="setLanguage('id')">ID</button>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Explore the World,<br>One Photo at a Time 📸</h1>
-        <p>Catch Learn turns your camera into a smart learning tool. Snap a photo, identify objects with AI, learn fun trivia, and practice drawing!</p>
-        <!-- Tombol CTA diarahkan ke Video Panduan -->
-        <a href="#guide" class="btn-cta" style="background: white; color: var(--primary-color);">Watch How It Works</a>
+        <div data-lang="en">
+            <h1>Explore the World,<br>One Photo at a Time 📸</h1>
+            <p>Catch Learn turns your camera into a smart learning tool. Snap a photo, identify objects with AI, learn fun trivia, and practice drawing!</p>
+            <a href="#guide" class="btn-cta" style="background: white; color: var(--primary-color);">Watch How It Works</a>
+        </div>
+        <div data-lang="id">
+            <h1>Jelajahi Dunia,<br>Satu Foto Setiap Saat 📸</h1>
+            <p>Catch Learn mengubah kamera Anda menjadi alat belajar yang cerdas. Ambil foto, kenali objek dengan AI, pelajari trivia seru, dan latihan menggambar!</p>
+            <a href="#guide" class="btn-cta" style="background: white; color: var(--primary-color);">Lihat Cara Kerjanya</a>
+        </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features">
-        <h2>Why Catch Learn?</h2>
+        <h2 data-lang="en">Why Catch Learn?</h2>
+        <h2 data-lang="id">Kenapa Catch Learn?</h2>
+        
         <div class="feature-grid">
             <div class="feature-card">
                 <span class="feature-icon">🤖</span>
-                <h3>AI Identification</h3>
-                <p>Instantly recognize everyday objects using advanced Senopati Vision AI technology.</p>
+                <div data-lang="en">
+                    <h3>AI Identification</h3>
+                    <p>Instantly recognize everyday objects using advanced Senopati Vision AI technology.</p>
+                </div>
+                <div data-lang="id">
+                    <h3>Identifikasi AI</h3>
+                    <p>Kenali objek sehari-hari secara instan menggunakan teknologi AI canggih Senopati Vision.</p>
+                </div>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">📚</span>
-                <h3>Fun Trivia</h3>
-                <p>Get fascinating facts about objects to expand your general knowledge effortlessly.</p>
+                <div data-lang="en">
+                    <h3>Fun Trivia</h3>
+                    <p>Get fascinating facts about objects to expand your general knowledge effortlessly.</p>
+                </div>
+                <div data-lang="id">
+                    <h3>Trivia Seru</h3>
+                    <p>Dapatkan fakta-fakta menarik tentang objek untuk menambah wawasan umum Anda dengan mudah.</p>
+                </div>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">🎨</span>
-                <h3>Drawing Mode</h3>
-                <p>Boost creativity by sketching scanned objects on our interactive digital canvas.</p>
+                <div data-lang="en">
+                    <h3>Drawing Mode</h3>
+                    <p>Boost creativity by sketching scanned objects on our interactive digital canvas.</p>
+                </div>
+                <div data-lang="id">
+                    <h3>Mode Menggambar</h3>
+                    <p>Tingkatkan kreativitas dengan membuat sketsa objek yang dipindai di kanvas digital interaktif kami.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Video Guide Section -->
     <section id="guide" class="video-guide">
-        <h2>See Catch Learn in Action</h2>
-        <p>Check out our quick user guide to get started.</p>
+        <h2 data-lang="en">See Catch Learn in Action</h2>
+        <h2 data-lang="id">Lihat Catch Learn Beraksi</h2>
+        
+        <p data-lang="en">Check out our quick user guide to get started.</p>
+        <p data-lang="id">Simak panduan pengguna singkat kami untuk memulai.</p>
         
         <div class="video-container">
             <iframe 
@@ -248,7 +357,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Catch Learn. Built for Education.</p>
+        <p data-lang="en">&copy; 2025 Catch Learn. Built for Education.</p>
+        <p data-lang="id">&copy; 2025 Catch Learn. Dibangun untuk Pendidikan.</p>
         <p>
             <a href="privacy.html">Privacy Policy</a> | 
             <a href="#">Terms of Service</a>
