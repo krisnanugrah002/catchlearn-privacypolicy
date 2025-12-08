@@ -346,10 +346,17 @@
         <p data-lang="id">Simak panduan pengguna singkat kami untuk memulai.</p>
         
         <div class="video-container">
+            <!-- 
+                PERUBAHAN PENTING:
+                1. Domain diubah ke www.youtube-nocookie.com (lebih ramah privasi & anti-blokir).
+                2. Ditambahkan referrerpolicy="strict-origin-when-cross-origin" untuk keamanan header.
+                3. Ditambahkan allow="web-share" untuk kompatibilitas mobile.
+            -->
             <iframe 
-                src="https://youtu.be/bTo6sYHHR2A?si=RphYif5Z98U6vKG1" 
+                src="https://www.youtube-nocookie.com/embed/bTo6sYHHR2A" 
                 title="Catch Learn User Guide" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen>
             </iframe>
         </div>
