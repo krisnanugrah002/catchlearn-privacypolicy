@@ -176,35 +176,32 @@
             text-align: center;
         }
 
-        /* MODIFIKASI FINAL: Container Video 16:9 (Landscape) - Ukuran Desktop Lebih Besar (Mirip 1920x1080 Scale) */
+        /* KONTAINER VIDEO LANDSCAPE (16:9) UKURAN BESAR */
         .video-container {
             position: relative;
-            /* 56.25% adalah rasio 16:9. Ini standar YouTube/Landscape */
-            padding-bottom: 56.25%; 
-            height: 0;
-            overflow: hidden;
+            width: 100%;
+            /* Di sini kuncinya: 
+               Kita tidak pakai 'padding-bottom' hack lagi biar lebih modern.
+               Kita pakai property 'aspect-ratio: 16/9'.
+            */
+            aspect-ratio: 16 / 9;
             
-            /* Lebar maksimal disesuaikan agar mendekati feel layar lebar, namun tetap responsif */
-            /* Jika ingin spesifik mendekati rasio 1920 width pada viewport besar, kita bisa set max-width lebih besar atau 100% */
-            max-width: 1280px; /* Ukuran yang nyaman untuk web desktop umum (720p/1080p scale) */
+            /* Max-width kita set besar (1200px) agar di laptop terlihat lebar/cinematic */
+            max-width: 800px; 
             
-            margin: 40px auto 0; /* Center horizontally */
-            border-radius: 20px; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
+            margin: 40px auto 0;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
             background-color: #000;
-            
-            /* Border tipis saja untuk landscape */
-            border: 4px solid #333;
-            overflow: hidden; /* Pastikan video tidak keluar dari radius */
+            overflow: hidden;
+            border: 4px solid #333; /* Frame tipis elegan */
         }
 
         .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; 
+            object-fit: cover; /* Video mengisi penuh area container */
+            display: block;
         }
 
         /* Footer */
@@ -256,9 +253,10 @@
             .lang-switch-nav { margin-left: 10px; }
             .container { margin-bottom: 60px; }
             
-            /* Di mobile, video container menyesuaikan lebar layar */
+            /* Di HP, container video otomatis menyesuaikan lebar layar (100%) */
             .video-container {
-                max-width: 100%; 
+                max-width: 100%;
+                border-width: 2px; /* Frame lebih tipis di HP */
             }
         }
     </style>
@@ -361,7 +359,7 @@
         
         <div class="video-container">
             <!-- 
-                VIDEO LOKAL (16:9 Landscape)
+                VIDEO LOKAL (16:9 Landscape - Ukuran Besar)
                 Pastikan file video "user-guide.mp4" ada di folder yang sama.
             -->
             <video controls playsinline poster="poster-image.jpg">
