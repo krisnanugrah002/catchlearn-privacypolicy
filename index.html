@@ -176,27 +176,33 @@
             text-align: center;
         }
 
+        /* MODIFIKASI FINAL: Container Video 16:9 (Landscape) */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            /* 56.25% adalah rasio 16:9. Ini standar YouTube/Landscape */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
-            max-width: 900px;
-            margin: 40px auto 0;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            background-color: #000; /* Background hitam saat loading */
+            
+            /* Lebar maksimal diperbesar agar nyaman dilihat di Desktop */
+            max-width: 800px; 
+            
+            margin: 40px auto 0; /* Center horizontally */
+            border-radius: 20px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
+            background-color: #000;
+            
+            /* Border tipis saja untuk landscape */
+            border: 4px solid #333;
         }
 
-        /* Style khusus untuk Video HTML5 agar responsif */
         .video-container video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Agar video mengisi area dengan rapi */
-            border-radius: 20px;
+            object-fit: cover; 
         }
 
         /* Footer */
@@ -247,6 +253,11 @@
             .nav-links a { margin: 0 10px; font-size: 0.9rem; }
             .lang-switch-nav { margin-left: 10px; }
             .container { margin-bottom: 60px; }
+            
+            /* Di mobile, video container menyesuaikan lebar layar */
+            .video-container {
+                max-width: 100%; 
+            }
         }
     </style>
     <script>
@@ -348,15 +359,12 @@
         
         <div class="video-container">
             <!-- 
-                PERBAIKAN FINAL: MENGGUNAKAN VIDEO LOKAL (HTML5)
-                1. Ganti iframe YouTube dengan tag <video>.
-                2. Pastikan file "user-guide.mp4" ada di folder yang sama dengan index.html.
-                3. Ini 100% aman dari blokir YouTube atau masalah koneksi.
+                VIDEO LOKAL (16:9 Landscape)
+                Pastikan file video "user-guide.mp4" ada di folder yang sama.
             -->
-            <video controls playsinline>
+            <video controls playsinline poster="poster-image.jpg">
                 <source src="user-guide.mp4" type="video/mp4">
                 Maaf, browser Anda tidak mendukung pemutaran video ini.
-                Sorry, your browser does not support the video tag.
             </video>
         </div>
     </section>
