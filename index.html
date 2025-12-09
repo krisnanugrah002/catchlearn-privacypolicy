@@ -185,15 +185,18 @@
             margin: 40px auto 0;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            background-color: #000; /* Background hitam saat loading */
         }
 
-        .video-container iframe {
+        /* Style khusus untuk Video HTML5 agar responsif */
+        .video-container video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover; /* Agar video mengisi area dengan rapi */
+            border-radius: 20px;
         }
 
         /* Footer */
@@ -224,16 +227,14 @@
             display: block;
         }
         
-        /* Fix for grid items to show correctly when switching language */
         body.lang-id .feature-grid [data-lang="id"] {
-            display: block; /* Override default block for grid item contents if needed, but structure handles it */
+            display: block; 
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .nav-links { 
-                /* Simple mobile adjustment */
                 position: fixed;
                 bottom: 0;
                 left: 0;
@@ -347,18 +348,16 @@
         
         <div class="video-container">
             <!-- 
-                PERUBAHAN PENTING:
-                1. Domain diubah ke www.youtube-nocookie.com (lebih ramah privasi & anti-blokir).
-                2. Ditambahkan referrerpolicy="strict-origin-when-cross-origin" untuk keamanan header.
-                3. Ditambahkan allow="web-share" untuk kompatibilitas mobile.
+                PERBAIKAN FINAL: MENGGUNAKAN VIDEO LOKAL (HTML5)
+                1. Ganti iframe YouTube dengan tag <video>.
+                2. Pastikan file "user-guide.mp4" ada di folder yang sama dengan index.html.
+                3. Ini 100% aman dari blokir YouTube atau masalah koneksi.
             -->
-            <iframe 
-                src="https://www.youtube-nocookie.com/embed/bTo6sYHHR2A" 
-                title="Catch Learn User Guide" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-            </iframe>
+            <video controls playsinline>
+                <source src="user-guide.mp4" type="video/mp4">
+                Maaf, browser Anda tidak mendukung pemutaran video ini.
+                Sorry, your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
