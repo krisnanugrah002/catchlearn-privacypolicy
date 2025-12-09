@@ -176,15 +176,17 @@
             text-align: center;
         }
 
-        /* MODIFIKASI FINAL: Container Video 16:9 (Landscape) */
+        /* MODIFIKASI FINAL: Container Video 16:9 (Landscape) - Ukuran Desktop Lebih Besar (Mirip 1920x1080 Scale) */
         .video-container {
             position: relative;
-            width: 100%; /* Pastikan lebar penuh container parent */
-            padding-bottom: 56.25%; /* Rasio 16:9 (9 / 16 * 100) */
-            height: 0; /* Penting untuk aspect ratio hack */
+            /* 56.25% adalah rasio 16:9. Ini standar YouTube/Landscape */
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
             
-            /* Lebar maksimal diperbesar agar nyaman dilihat di Desktop */
-            max-width: 800px; 
+            /* Lebar maksimal disesuaikan agar mendekati feel layar lebar, namun tetap responsif */
+            /* Jika ingin spesifik mendekati rasio 1920 width pada viewport besar, kita bisa set max-width lebih besar atau 100% */
+            max-width: 1280px; /* Ukuran yang nyaman untuk web desktop umum (720p/1080p scale) */
             
             margin: 40px auto 0; /* Center horizontally */
             border-radius: 20px; 
