@@ -179,10 +179,9 @@
         /* MODIFIKASI FINAL: Container Video 16:9 (Landscape) */
         .video-container {
             position: relative;
-            /* 56.25% adalah rasio 16:9. Ini standar YouTube/Landscape */
-            padding-bottom: 56.25%; 
-            height: 0;
-            overflow: hidden;
+            width: 100%; /* Pastikan lebar penuh container parent */
+            padding-bottom: 56.25%; /* Rasio 16:9 (9 / 16 * 100) */
+            height: 0; /* Penting untuk aspect ratio hack */
             
             /* Lebar maksimal diperbesar agar nyaman dilihat di Desktop */
             max-width: 800px; 
@@ -194,6 +193,7 @@
             
             /* Border tipis saja untuk landscape */
             border: 4px solid #333;
+            overflow: hidden; /* Pastikan video tidak keluar dari radius */
         }
 
         .video-container video {
